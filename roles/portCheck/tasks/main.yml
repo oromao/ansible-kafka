@@ -1,4 +1,18 @@
 ---
+- name: Instalar o pacote polkit
+  yum:
+    name: polkit
+    state: present # para garantir que o pacote esteja instalado
+
+- name: Reiniciar o serviço polkit
+  systemd:
+    name: polkit
+    state: restarted
+  become: true
+
+- name: Restart Kafka Service
+  ansible.builtin.command:
+    cmd: systemctl restart kafka
 
 - name: Waiting for port | {{ portNumber }} | to be | {{ portStatus }}
   ansible.builtin.wait_for:

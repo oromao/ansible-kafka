@@ -35,9 +35,9 @@ kafkaZookeeperConnectionTimeoutMs: 10000
 # please use name like <environment>-kafka, so it get distinct name in NewRelic
 kafkaClusterName: development-kafka
 
-kafkaVersion: 3.2.1
-kafkaScalaVersion: 2.13
-kafkaTarLocation: "/Users/paulo/kafka-cluster-ansible/kafka_{{ kafkaScalaVersion }}-{{ kafkaVersion }}.tgz"
+kafkaVersion: 3.4.1
+kafkaScalaVersion: 2.12
+kafkaTarLocation: "~/ansible-kafka/kafka_{{ kafkaScalaVersion }}-{{ kafkaVersion }}.tgz"
 
 # below will be used while decommission/downgrade only
 kafkaOldVersion: 3.0.0
