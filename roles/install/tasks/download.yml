@@ -3,11 +3,6 @@
 #       to reduce multiple downloads on all nodes.
 #       Not Required: if downloading from local company mirror.
 
-- name: Copy Kafka archive to remote server | {{ kafkaVersion }}
-  copy:
-    src: "{{ kafkaTarLocation }}"
-    dest: "{{ kafkaInstallDir }}"
-
 - name: copy and unarchive kafka | {{ kafkaVersion }}
   ansible.builtin.unarchive:
     src: "{{ kafkaTarLocation }}"
@@ -17,7 +12,6 @@
     validate_certs: false
     keep_newer: yes
     creates: "{{ kafkaInstallDir }}/kafka_{{ kafkaScalaVersion }}-{{ kafkaVersion }}/bin"
-    remote_src: yes
 
 - name: Ensuring permissions on unarchieved files
   ansible.builtin.file:
